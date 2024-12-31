@@ -2,7 +2,10 @@ const express = require('express');
 const tourController = require('../controllers/tourController');
 const router = express.Router();
 
-// router.param('id', tourController.checkID);
+//an aliase route - manipulated with a middleware
+router
+  .route('/top-5-cheap')
+  .get(tourController.aliaseGetTopFive, tourController.getAllTours);
 
 router
   .route('/')
